@@ -46,11 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="DAL.cs" />
+    <Compile Include="CategoryManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="CategoryManage.Designer.cs">
+      <DependentUpon>CategoryManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductAdd.Designer.cs">
+      <DependentUpon>ProductAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductList.Designer.cs">
+      <DependentUpon>ProductList.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -59,8 +78,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>storedbDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="CategoryManage.resx">
+      <DependentUpon>CategoryManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductAdd.resx">
+      <DependentUpon>ProductAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductList.resx">
+      <DependentUpon>ProductList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

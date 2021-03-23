@@ -2,9 +2,12 @@ C:\Users\HKDUC\source\repos\store_management\store_management\bin\Debug\store_ma
 C:\Users\HKDUC\source\repos\store_management\store_management\bin\Debug\store_management.exe
 C:\Users\HKDUC\source\repos\store_management\store_management\bin\Debug\store_management.pdb
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.csprojAssemblyReference.cache
-C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.Form1.resources
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.Properties.Resources.resources
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.csproj.GenerateResource.cache
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.csproj.CoreCompileInputs.cache
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.exe
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.pdb
+C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.ProductList.resources
+C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.CategoryManage.resources
+C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.Home.resources
+C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.ProductAdd.resources

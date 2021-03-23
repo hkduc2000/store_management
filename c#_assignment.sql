@@ -32,13 +32,15 @@ create table ProductInInvoice(
 	primary key (InvoiceID, ProductID)
 )
 
-select * from category where FatherID is null
+select * from category where FatherID=7
 select count(*) from category;
 select * from Category;
-insert into Category values(N'Thực phẩm', null);
-insert into Category values(N'Tiêu dùng', null);
-insert into Category values(N'Đồ ăn liền', 1);
-insert into Category values(N'Trái cây', 1);
-insert into Category values(N'Tươi sống', 1);
-insert into Category values(N'Nhập khẩu', 4);
-insert into Category values(N'Trái cây việt', 4);
+
+select * from Product;
+insert into Product values('Product1', N'Đây là product test thứ 1', 1000, 1500, 10,1)
+insert into Product values('Product2', N'Đây là product test thứ 2', 1000, 1500, 10,8)
+
+
+
+Drop table ProductInInvoice
+drop table Product

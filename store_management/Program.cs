@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 namespace store_management {
 
     class CategoryTreeNode : TreeNode {
-        int categoryID;
+        int categoryID; 
 
         public CategoryTreeNode(string text, int categoryID) : base(text) {
             this.categoryID = categoryID;
@@ -27,19 +28,19 @@ namespace store_management {
         int costPrice;
         int price;
         int quantity;
-        int quantityID;
+        int categoryID;
 
         public Product() {
         }
 
-        public Product(int productID, string productName, string description, int costPrice, int price, int quantity, int quantityID) {
-            this.ProductID = productID;
-            this.ProductName = productName;
-            this.Description = description;
-            this.CostPrice = costPrice;
-            this.Price = price;
-            this.Quantity = quantity;
-            this.QuantityID = quantityID;
+        public Product(int productID, string productName, string description, int costPrice, int price, int quantity, int categoryID) {
+            this.productID = productID;
+            this.productName = productName;
+            this.description = description;
+            this.costPrice = costPrice;
+            this.price = price;
+            this.quantity = quantity;
+            this.categoryID = categoryID;
         }
 
         public int ProductID { get => productID; set => productID = value; }
@@ -48,18 +49,25 @@ namespace store_management {
         public int CostPrice { get => costPrice; set => costPrice = value; }
         public int Price { get => price; set => price = value; }
         public int Quantity { get => quantity; set => quantity = value; }
-        public int QuantityID { get => quantityID; set => quantityID = value; }
+        public int CategoryID { get => categoryID; set => categoryID = value; }
     }
 
     static class Program {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+
+        public static ProductList f;
+
         [STAThread]
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            DAL.con = new SqlConnection(DAL.constr);
+            DAL.con.Open();
+            f = new ProductList();
+            Application.Run(new Home());
+            
         }
     }
 }
