@@ -21,9 +21,16 @@ namespace store_management {
         }
 
         public static int addProduct(Product product) {
-            String sql = $"insert into Product values('{product.ProductName}'," +
-                $"'{product.Description}', {product.CostPrice} , {product.Price}," +
+            String sql = $"insert into Product values(N'{product.ProductName}'," +
+                $"N'{product.Description}', {product.CostPrice} , {product.Price}," +
                 $"{product.Quantity}, {product.CategoryID})";
+            return DAL.ExecuteNonQuery(sql);
+        }
+
+        public static int editProduct(Product product) {
+            String sql = $"insert Product set ProductName=N'{product.ProductName}'," +
+                $"Description=N'{product.Description}', CostPrice={product.CostPrice} , Price={product.Price}," +
+                $"Quantity={product.Quantity}) where ProductID={product.ProductID}";
             return DAL.ExecuteNonQuery(sql);
         }
     }

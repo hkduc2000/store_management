@@ -53,6 +53,12 @@
     <Compile Include="CategoryManage.Designer.cs">
       <DependentUpon>CategoryManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductEdit.Designer.cs">
+      <DependentUpon>ProductEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductEdit.resx">
+      <DependentUpon>ProductEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductList.resx">
       <DependentUpon>ProductList.cs</DependentUpon>

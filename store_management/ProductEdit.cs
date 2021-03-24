@@ -9,27 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace store_management {
-    public partial class ProductAdd : Form {
-        public ProductAdd() {
+    public partial class ProductEdit : Form {
+        public ProductEdit() {
             InitializeComponent();
         }
 
-        
-
-        private void ProductAdd_Load(object sender, EventArgs e) {
-            lblCategory.Text = Program.productListForm.TrvMenu.SelectedNode.FullPath;
-        }
 
         private void btnExit_Click(object sender, EventArgs e) {
             this.Close();
-        }
-
-        private void clearInput() {
-            txtProductName.Text = "";
-            txtDescription.Text = "";
-            txtCostPrice.Text = "";
-            txtPrice.Text = "";
-            txtQuantity.Text = "";
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
@@ -41,17 +28,29 @@ namespace store_management {
                 product.CostPrice = int.Parse(txtCostPrice.Text);
                 product.Price = int.Parse(txtPrice.Text);
                 product.Quantity = int.Parse(txtQuantity.Text);
-                ProductDAO.addProduct(product);
+                ProductDAO.editProduct(product);
                 Program.productListForm.loadProducts();
             } catch (FormatException) {
                 MessageBox.Show("Dữ liệu không hợp lệ");
                 return;
-            } catch (Exception) {
+            } catch (Exception e1) {
                 MessageBox.Show("Không thành công");
+                MessageBox.Show(e1.Message);
                 return;
             }
             MessageBox.Show("Thành công");
-            clearInput();
+            this.Close();
+        }
+
+        private void ProductEdit_Load(object sender, EventArgs e) {
+            var row = Program.productListForm.TblDisplay.SelectedRows[0].Cells;
+            lblProductID.Text = row[0].Value.ToString();
+            txtProductName.Text = row[1].Value.ToString();
+            txtDescription.Text = row[2].Value.ToString();
+            txtCostPrice.Text = row[3].Value.ToString();
+            txtPrice.Text = row[4].Value.ToString();
+            txtQuantity.Text = row[5].Value.ToString();
+            lblCategory.Text = Program.productListForm.TrvMenu.SelectedNode.FullPath;
         }
     }
 }

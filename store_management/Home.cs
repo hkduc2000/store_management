@@ -15,11 +15,11 @@ namespace store_management {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            Program.f.Show();
+            Program.productListForm.Show();
         }
 
         private void btnCategory_Click(object sender, EventArgs e) {
-            new CategoryManage().Show();
+            Program.categoryManageForm.Show();
         }
 
         private void Home_Load(object sender, EventArgs e) {

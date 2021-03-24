@@ -57,7 +57,9 @@ namespace store_management {
         /// The main entry point for the application.
         /// </summary>
 
-        public static ProductList f;
+        public static ProductList productListForm;
+        public static CategoryManage categoryManageForm;
+
 
         [STAThread]
         static void Main() {
@@ -65,7 +67,8 @@ namespace store_management {
             Application.SetCompatibleTextRenderingDefault(false);
             DAL.con = new SqlConnection(DAL.constr);
             DAL.con.Open();
-            f = new ProductList();
+            productListForm = new ProductList();
+            categoryManageForm = new CategoryManage();
             Application.Run(new Home());
             
         }

@@ -35,6 +35,8 @@
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -120,7 +122,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(224, 265);
+            this.btnSave.Location = new System.Drawing.Point(225, 293);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 33);
             this.btnSave.TabIndex = 12;
@@ -130,7 +132,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(341, 265);
+            this.btnExit.Location = new System.Drawing.Point(341, 293);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(94, 33);
             this.btnExit.TabIndex = 13;
@@ -138,11 +140,30 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(27, 259);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 20);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Category: ";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(137, 259);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(0, 20);
+            this.lblCategory.TabIndex = 15;
+            // 
             // ProductAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 312);
+            this.ClientSize = new System.Drawing.Size(471, 338);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtQuantity);
@@ -180,5 +201,7 @@
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCategory;
     }
 }

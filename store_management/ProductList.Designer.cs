@@ -1,4 +1,6 @@
-﻿namespace store_management {
+﻿using System.Windows.Forms;
+
+namespace store_management {
     partial class ProductList {
         /// <summary>
         /// Required designer variable.
@@ -35,6 +37,7 @@
             // 
             // trvMenu
             // 
+            this.trvMenu.HideSelection = false;
             this.trvMenu.Location = new System.Drawing.Point(18, 18);
             this.trvMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.trvMenu.Name = "trvMenu";
@@ -49,12 +52,18 @@
             this.tblDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblDisplay.Location = new System.Drawing.Point(13, 172);
             this.tblDisplay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tblDisplay.MultiSelect = false;
             this.tblDisplay.Name = "tblDisplay";
+            this.tblDisplay.ReadOnly = true;
+            this.tblDisplay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tblDisplay.Size = new System.Drawing.Size(715, 214);
             this.tblDisplay.TabIndex = 1;
+            this.tblDisplay.TabStop = false;
+            this.tblDisplay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblDisplay_CellContentClick);
             // 
             // btnAdd
             // 
+            this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(320, 394);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(81, 34);
@@ -65,15 +74,18 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Enabled = false;
             this.btnEdit.Location = new System.Drawing.Point(407, 394);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(81, 34);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Sửa";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.Enabled = false;
             this.btnDelete.Location = new System.Drawing.Point(494, 395);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(81, 34);
@@ -133,6 +145,9 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label msg;
+
+        public TreeView TrvMenu { get => trvMenu; set => trvMenu = value; }
+        public DataGridView TblDisplay { get => tblDisplay; set => tblDisplay = value; }
     }
 }
 

@@ -16,7 +16,6 @@ namespace store_management {
         private void loadMenu() {
             trvMenu.Nodes.Clear();
             trvMenu.Nodes.AddRange(DAL.getCategoryByItsFather());
-            
         }
         private void CategoryManage_Load(object sender, EventArgs e) {
             loadMenu();            
@@ -75,7 +74,7 @@ namespace store_management {
         }
 
         private void btnExit_Click(object sender, EventArgs e) {
-            this.Close();
+            this.Hide();
         }
     }
 }

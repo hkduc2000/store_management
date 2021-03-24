@@ -16,11 +16,6 @@ namespace store_management {
             
         }
 
-        public int getCategoryID() {
-            CategoryTreeNode selectedNode = (CategoryTreeNode)trvMenu.SelectedNode;
-            return selectedNode.CategoryID;
-        }
-
         private void loadMenu() {
             trvMenu.Nodes.Clear();
             trvMenu.Nodes.AddRange(DAL.getCategoryByItsFather());
@@ -31,8 +26,8 @@ namespace store_management {
             loadMenu();
         }
 
-        private void trvMenu_AfterSelect(object sender, TreeViewEventArgs e) {
-            CategoryTreeNode selectedNode = (CategoryTreeNode) trvMenu.SelectedNode;
+        public void loadProducts() {
+            CategoryTreeNode selectedNode = (CategoryTreeNode)trvMenu.SelectedNode;
             tblDisplay.DataSource = ProductDAO.getProductByCategory(selectedNode.CategoryID);
             string s = "";
             foreach (int i in CategoryDAO.getCategoryList(selectedNode.CategoryID)) {
@@ -41,12 +36,26 @@ namespace store_management {
             msg.Text = s;
         }
 
+        private void trvMenu_AfterSelect(object sender, TreeViewEventArgs e) {
+            loadProducts();
+            btnAdd.Enabled = true;
+        }
+
         private void btnExit_Click(object sender, EventArgs e) {
-            this.Close();
+            this.Hide();
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
             new ProductAdd().Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e) {
+            new ProductEdit().Show();
+        }
+
+        private void tblDisplay_CellContentClick(object sender, DataGridViewCellEventArgs e) {
+            
+            btnEdit.Enabled = true;
         }
     }
 }
