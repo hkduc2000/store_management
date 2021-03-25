@@ -7,6 +7,40 @@ using System.Windows.Forms;
 
 namespace store_management {
 
+    class Invoice {
+        int invoiceID;
+        DateTime createdDate;
+        string businessPartner;
+        int invoiceType;
+        List<Product> inf;
+
+        public Invoice(int invoiceID, DateTime createdDate, string businessPartner, int invoiceType, List<Product> inf) {
+            this.invoiceID = invoiceID;
+            this.createdDate = createdDate;
+            this.businessPartner = businessPartner;
+            this.invoiceType = invoiceType;
+            this.inf = inf;
+        }
+
+        public Invoice( string businessPartner, int invoiceType, List<Product> inf) {
+            
+            this.createdDate = DateTime.Now;
+            this.businessPartner = businessPartner;
+            this.invoiceType = invoiceType;
+            this.inf = inf;
+        }
+
+        public Invoice() {
+            this.createdDate = DateTime.Now;
+        }
+
+        public int InvoiceID { get => invoiceID; set => invoiceID = value; }
+        public DateTime CreatedDate { get => createdDate; set => createdDate = value; }
+        public string BusinessPartner { get => businessPartner; set => businessPartner = value; }
+        internal List<Product> Inf { get => inf; set => inf = value; }
+        public int InvoiceType { get => invoiceType; set => invoiceType = value; }
+    }
+
     class CategoryTreeNode : TreeNode {
         int categoryID; 
 
@@ -29,6 +63,14 @@ namespace store_management {
         int price;
         int quantity;
         int categoryID;
+
+        public Product(int productID, string productName, int costPrice, int price, int quantity) {
+            this.productID = productID;
+            this.productName = productName;
+            this.costPrice = costPrice;
+            this.price = price;
+            this.quantity = quantity;
+        }
 
         public Product() {
         }

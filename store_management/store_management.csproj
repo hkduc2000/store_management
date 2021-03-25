@@ -53,6 +53,24 @@
     <Compile Include="CategoryManage.Designer.cs">
       <DependentUpon>CategoryManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddInvoice1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInvoice1.Designer.cs">
+      <DependentUpon>AddInvoice1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddInvoice2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInvoice2.Designer.cs">
+      <DependentUpon>AddInvoice2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceList.Designer.cs">
+      <DependentUpon>InvoiceList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,13 +97,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="storedbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>storedbDataSet.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="CategoryManage.resx">
       <DependentUpon>CategoryManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddInvoice1.resx">
+      <DependentUpon>AddInvoice1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddInvoice2.resx">
+      <DependentUpon>AddInvoice2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceList.resx">
+      <DependentUpon>InvoiceList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductAdd.resx">
       <DependentUpon>ProductAdd.cs</DependentUpon>
@@ -117,17 +139,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="storedbDataSet.xsc">
-      <DependentUpon>storedbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="storedbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>storedbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="storedbDataSet.xss">
-      <DependentUpon>storedbDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

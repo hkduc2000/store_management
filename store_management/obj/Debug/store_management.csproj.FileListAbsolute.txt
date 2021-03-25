@@ -12,3 +12,6 @@ C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_ma
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.Home.resources
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.ProductAdd.resources
 C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.ProductEdit.resources
+C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.InvoiceList.resources
+C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.AddInvoice1.resources
+C:\Users\HKDUC\source\repos\store_management\store_management\obj\Debug\store_management.AddInvoice2.resources

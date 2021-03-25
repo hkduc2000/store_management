@@ -25,5 +25,17 @@ namespace store_management {
         private void Home_Load(object sender, EventArgs e) {
             
         }
+
+        private void btnStock_Click(object sender, EventArgs e) {
+            new InvoiceList().Show();
+        }
+
+        private void btnInvoice1_Click(object sender, EventArgs e) {
+            new AddInvoice1().Show();
+        }
+
+        private void btnInvoice2_Click(object sender, EventArgs e) {
+            new AddInvoice2().Show();
+        }
     }
 }

@@ -8,14 +8,86 @@ using System.Threading.Tasks;
 
 namespace store_management {
 
+    class InvoiceDAO {
+
+        public static DataTable getInvoices(DateTime from, DateTime to,string listType) {
+            string sql = $"Select InvoiceID, CreatedDate, BusinessPartner from Invoice where (CreatedDate between " +
+                $"'{from.ToString("yyyy-MM-dd")}' and '{to.ToString("yyyy-MM-dd")}')" +
+                $" and InvoiceType IN {listType}";
+            return DAL.ExecuteQuery(sql);
+        }
+
+        public static string test(DateTime from, DateTime to, string listType) {
+            return  $"Select * from Invoice where CreatedDate between " +
+               $"'{from.ToString("yyyy-MM-dd")}' and '{to.ToString("yyyy-MM-dd")}'" +
+               $" and InvoiceType IN {listType}";
+        }
+
+        public static int getInvoiceCurIdentity() {
+            String sql = "select IDENT_CURRENT('Invoice')";
+            return DAL.ExecuteScalar(sql);
+        }
+
+        public static int addInvoice(Invoice invoice) {
+            int cur = getInvoiceCurIdentity();
+            string sql = "BEGIN TRAN\n" +
+                $"insert into Invoice values ('{invoice.CreatedDate.ToString("yyyy-MM-dd")}', '{invoice.BusinessPartner}', {invoice.InvoiceType})\n";
+            foreach(Product p in invoice.Inf) {
+                sql += $"insert into ProductInInvoice values({cur+1}, {p.ProductID}, {p.Quantity}, {p.Price})\n";
+                sql += $"update Product set Quantity=Quantity+{p.Quantity * invoice.InvoiceType} where ProductID={p.ProductID}\n";
+            }
+            sql += "Commit";
+            return DAL.ExecuteNonQuery(sql);
+        }
+    }
+
+
     class ProductDAO {
-        public static DataTable getProductByCategory(int categoryid) {
+        public static Product getProductByProductID(int ProductID) {
+            Product product = new Product();
+            String sql = $"select * from Product" +
+                $" where ProductID={ProductID}";
+            SqlCommand cmd = new SqlCommand(sql, DAL.con);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read()) {
+                product.ProductID = ProductID;
+                product.ProductName = dr.GetString(1);
+                product.Description = dr.GetString(2);
+                product.CostPrice = dr.GetInt32(3);
+                product.Price = dr.GetInt32(4);
+                product.Quantity = dr.GetInt32(5);
+                product.CategoryID = dr.GetInt32(6);
+                return product;
+            }
+            return null;
+        }
+
+        public static Product getProductByName(string name) {
+            string sql = $"select top 1 * from Product where ProductName like '%{name}%'";
+            SqlCommand cmd = new SqlCommand(sql, DAL.con);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read()) {
+                Product product = new Product();
+                product.ProductID = dr.GetInt32(0);
+                product.ProductName = dr.GetString(1);
+                product.Description = dr.GetString(2);
+                product.CostPrice = dr.GetInt32(3);
+                product.Price = dr.GetInt32(4);
+                product.Quantity = dr.GetInt32(5);
+                product.CategoryID = dr.GetInt32(6);
+                return product;
+            }
+            return null;
+        }
+
+        public static DataTable getProductByCategory(int categoryid, string quantityCondition, string search) {
             DataTable dt = new DataTable();
             List<int> categories = CategoryDAO.getCategoryList(categoryid);
             categories.Add(categoryid);
             foreach (int id in categories) {
                 dt.Merge(DAL.ExecuteQuery($"select * from Product" +
-                $" where CategoryID={id}"));
+                $" where CategoryID={id} and Quantity{quantityCondition} and (ProductName like N'%{search}%' or ProductID like N'%{search}%')"));
             }
             return dt;
         }
@@ -28,9 +100,17 @@ namespace store_management {
         }
 
         public static int editProduct(Product product) {
-            String sql = $"insert Product set ProductName=N'{product.ProductName}'," +
+            String sql = $"update Product set ProductName=N'{product.ProductName}'," +
                 $"Description=N'{product.Description}', CostPrice={product.CostPrice} , Price={product.Price}," +
-                $"Quantity={product.Quantity}) where ProductID={product.ProductID}";
+                $"Quantity={product.Quantity} where ProductID={product.ProductID}";
+            return DAL.ExecuteNonQuery(sql);
+        }
+
+        public static int deleteProduct(int productid) {
+            string sql = "BEGIN TRAN\n" +
+                $"delete from ProductInInvoice where ProductID={productid}\n" + 
+                $"delete from Product where ProductID={productid}\n" +
+            "Commit";
             return DAL.ExecuteNonQuery(sql);
         }
     }
@@ -95,5 +175,12 @@ namespace store_management {
             int rs = cmd.ExecuteNonQuery();
             return rs;
         }
+
+        public static int ExecuteScalar(string sql) {
+            var cmd = new SqlCommand(sql, con);
+            var rs = Convert.ToInt32(cmd.ExecuteScalar());
+            return rs;
+        }
+
     }
 }

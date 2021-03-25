@@ -89,7 +89,7 @@
             this.txtDescription.Location = new System.Drawing.Point(31, 88);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(404, 66);
-            this.txtDescription.TabIndex = 7;
+            this.txtDescription.TabIndex = 2;
             this.txtDescription.Text = "";
             // 
             // txtCostPrice
@@ -97,35 +97,35 @@
             this.txtCostPrice.Location = new System.Drawing.Point(141, 157);
             this.txtCostPrice.Name = "txtCostPrice";
             this.txtCostPrice.Size = new System.Drawing.Size(240, 26);
-            this.txtCostPrice.TabIndex = 8;
+            this.txtCostPrice.TabIndex = 3;
             // 
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(141, 188);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(240, 26);
-            this.txtPrice.TabIndex = 9;
+            this.txtPrice.TabIndex = 4;
             // 
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(141, 33);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(240, 26);
-            this.txtProductName.TabIndex = 10;
+            this.txtProductName.TabIndex = 1;
             // 
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(141, 220);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(240, 26);
-            this.txtQuantity.TabIndex = 11;
+            this.txtQuantity.TabIndex = 5;
             // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(225, 293);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 33);
-            this.btnSave.TabIndex = 12;
+            this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);

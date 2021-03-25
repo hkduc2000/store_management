@@ -21,6 +21,7 @@ namespace store_management {
 
         private void btnSave_Click(object sender, EventArgs e) {
             Product product = new Product();
+            product.ProductID = int.Parse(lblProductID.Text);
             product.ProductName = txtProductName.Text;
             product.Description = txtDescription.Text;
             product.CategoryID = ((CategoryTreeNode)Program.productListForm.TrvMenu.SelectedNode).CategoryID;

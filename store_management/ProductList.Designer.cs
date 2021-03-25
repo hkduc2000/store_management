@@ -31,8 +31,14 @@ namespace store_management {
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.msg = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chkAll = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkAvailable = new System.Windows.Forms.RadioButton();
+            this.chkOutOfStock = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.tblDisplay)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // trvMenu
@@ -48,6 +54,7 @@ namespace store_management {
             // 
             // tblDisplay
             // 
+            this.tblDisplay.AllowUserToAddRows = false;
             this.tblDisplay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tblDisplay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tblDisplay.Location = new System.Drawing.Point(13, 172);
@@ -92,6 +99,7 @@ namespace store_management {
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnExit
             // 
@@ -103,21 +111,79 @@ namespace store_management {
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // msg
+            // txtSearch
             // 
-            this.msg.AutoSize = true;
-            this.msg.Location = new System.Drawing.Point(458, 44);
-            this.msg.Name = "msg";
-            this.msg.Size = new System.Drawing.Size(39, 20);
-            this.msg.TabIndex = 6;
-            this.msg.Text = "msg";
+            this.txtSearch.Location = new System.Drawing.Point(526, 18);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(166, 26);
+            this.txtSearch.TabIndex = 6;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(378, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Tìm kiếm mặt hàng:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // chkAll
+            // 
+            this.chkAll.AutoSize = true;
+            this.chkAll.Checked = true;
+            this.chkAll.Location = new System.Drawing.Point(36, 26);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Size = new System.Drawing.Size(71, 24);
+            this.chkAll.TabIndex = 8;
+            this.chkAll.TabStop = true;
+            this.chkAll.Text = "Tất cả";
+            this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chkOutOfStock);
+            this.groupBox1.Controls.Add(this.chkAvailable);
+            this.groupBox1.Controls.Add(this.chkAll);
+            this.groupBox1.Location = new System.Drawing.Point(382, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(185, 116);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Hiển thị";
+            // 
+            // chkAvailable
+            // 
+            this.chkAvailable.AutoSize = true;
+            this.chkAvailable.Location = new System.Drawing.Point(36, 56);
+            this.chkAvailable.Name = "chkAvailable";
+            this.chkAvailable.Size = new System.Drawing.Size(120, 24);
+            this.chkAvailable.TabIndex = 9;
+            this.chkAvailable.Text = "Chỉ còn hàng";
+            this.chkAvailable.UseVisualStyleBackColor = true;
+            this.chkAvailable.CheckedChanged += new System.EventHandler(this.chkAvailable_CheckedChanged);
+            // 
+            // chkOutOfStock
+            // 
+            this.chkOutOfStock.AutoSize = true;
+            this.chkOutOfStock.Location = new System.Drawing.Point(36, 86);
+            this.chkOutOfStock.Name = "chkOutOfStock";
+            this.chkOutOfStock.Size = new System.Drawing.Size(117, 24);
+            this.chkOutOfStock.TabIndex = 10;
+            this.chkOutOfStock.Text = "Chỉ hết hàng";
+            this.chkOutOfStock.UseVisualStyleBackColor = true;
+            this.chkOutOfStock.CheckedChanged += new System.EventHandler(this.chkOutOfStock_CheckedChanged);
             // 
             // ProductList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 443);
-            this.Controls.Add(this.msg);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -128,9 +194,11 @@ namespace store_management {
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ProductList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Quản lí mặt hàng";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tblDisplay)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,7 +212,12 @@ namespace store_management {
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label msg;
+        private TextBox txtSearch;
+        private Label label1;
+        private RadioButton chkAll;
+        private GroupBox groupBox1;
+        private RadioButton chkOutOfStock;
+        private RadioButton chkAvailable;
 
         public TreeView TrvMenu { get => trvMenu; set => trvMenu = value; }
         public DataGridView TblDisplay { get => tblDisplay; set => tblDisplay = value; }
